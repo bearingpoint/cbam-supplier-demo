@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBAM Supplier Optimization</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="sap-logo">SAP</div>
+    <div class="app-title">CBAM Supplier Optimization</div>
+    <div class="context-pill">
+      <span id="contextMaterial">Aluminium</span>
+      &nbsp;|&nbsp;
+      Total landed cost
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="top-btn" id="refreshBtn">
+      ↻ Refresh
+    </button>
+
+    <button class="top-btn" id="exportBtn">
+      ⇩ Export
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+
+  <aside class="sidebar">
+
+    <section>
+      <div class="section-title">
+        Navigation
+      </div>
+
+      <div class="nav-list">
+
+        <button class="nav-item active"
+                data-page="overview">
+          <span class="nav-icon">⌂</span>
+          <span>Overview</span>
+          <span></span>
+        </button>
+
+        <button class="nav-item"
+                data-page="ranking">
+          <span class="nav-icon">▥</span>
+          <span>Supplier Ranking</span>
+          <span class="chevron">›</span>
+        </button>
+
+        <button class="nav-item"
+                data-page="detail">
+          <span class="nav-icon">▤</span>
+          <span>Supplier Detail</span>
+          <span class="chevron">›</span>
+        </button>
+
+        <button class="nav-item"
+                data-page="scenario">
+          <span class="nav-icon">☷</span>
+          <span>Scenario Simulation</span>
+          <span class="chevron">›</span>
+        </button>
+
+
+        <button class="nav-item" data-page="map">
+        <span class="nav-icon">🌍</span>
+        <span>Map Overview</span>
+        <span class="chevron">›</span>
+        </button>
+
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+
+      <div class="section-title">
+        ▽ Global Filters
+      </div>
+
+      <label class="field-label">
+        Material
+      </label>
+
+      <select id="materialFilter">
+        <option value="Aluminium">Aluminium</option>
+        <option value="Steel">Steel</option>
+        <option value="All">All</option>
+      </select>
+
+      <label class="field-label">
+        Region
+      </label>
+
+      <select id="regionFilter"></select>
+
+    </section>
+
+    <section class="info-tile">
+      <div class="info-dot">i</div>
+
+      <div>
+        Ranking and scores update instantly based on material,
+        region and weighting criteria.
+      </div>
+    </section>
+
+  </aside>
+
+  <main class="main">
+
+    <section class="page-header">
+
+      <div>
+        <h1 id="pageTitle">
+          Overview
+        </h1>
+
+        <p class="subtitle" id="pageSubtitle">
+          Interactive Fiori-style clickable mock-up for CBAM,
+          transport, cost, CO₂ and risk steering.
+        </p>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search supplier, region..."
+        />
+      </div>
+
+    </section>
+
+    <section id="content"></section>
+
+  </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
