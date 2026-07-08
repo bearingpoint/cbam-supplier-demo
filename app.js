@@ -358,7 +358,7 @@ function renderScenarioPage(ranking) {
 
 function setPageText() {
     const map = {
-        overview: ['Overview', 'Interactive Fiori-style clickable mock-up for CBAM, transport, cost, CO₂ and risk steering.'],
+        overview: ['Overview', 'CBAM, transport, cost, CO₂ and risk steering.'],
         ranking: ['Supplier Ranking', 'Full supplier ranking with score, cost, lead time, risk and carbon impact.'],
         detail: ['Supplier Detail', 'Supplier-level view with production, CBAM, transport, risk and emissions KPIs.'],
         scenario: ['Scenario Simulation', 'Apply sourcing scenarios and compare how the recommendation changes.'],
