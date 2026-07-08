@@ -1,11 +1,115 @@
+
 const suppliers = [
-    { id: 'ALU-A', name: 'Alu Gulf Smelters', region: 'Middle East', material: 'Aluminium', product: 'Aluminium billet', production: 500, cbam: 90, transport: 70, leadTime: 28, risk: 42, emissions: 1.6 },
-    { id: 'ALU-C', name: 'Nordic Low Carbon Aluminium', region: 'Europe', material: 'Aluminium', product: 'Aluminium billet', production: 600, cbam: 40, transport: 60, leadTime: 12, risk: 18, emissions: 0.8 },
-    { id: 'ALU-B', name: 'Asia Aluminium Works', region: 'Asia', material: 'Aluminium', product: 'Aluminium billet', production: 480, cbam: 140, transport: 100, leadTime: 38, risk: 68, emissions: 2.8 },
-    { id: 'STL-A', name: 'Anatolia Steel Mills', region: 'Turkey', material: 'Steel', product: 'Hot rolled coil', production: 610, cbam: 115, transport: 55, leadTime: 10, risk: 35, emissions: 1.9 },
-    { id: 'STL-B', name: 'Korea Green Steel', region: 'Asia', material: 'Steel', product: 'Flat steel products', production: 640, cbam: 80, transport: 95, leadTime: 32, risk: 28, emissions: 1.2 },
-    { id: 'STL-C', name: 'Brazil Integrated Steel', region: 'South America', material: 'Steel', product: 'Semi-finished steel', production: 570, cbam: 150, transport: 120, leadTime: 40, risk: 55, emissions: 2.7 }
+    {
+        id: 'ALU-A',
+        name: 'Alu Gulf Smelters',
+        city: 'Dubai',
+        country: 'UAE',
+        region: 'Middle East',
+        material: 'Aluminium',
+        product: 'Aluminium billet',
+        production: 500,
+        cbam: 90,
+        transport: 70,
+        leadTime: 28,
+        risk: 42,
+        emissions: 1.6,
+        annualVolume: 120000,
+        x: 63,
+        y: 42
+    },
+    {
+        id: 'ALU-C',
+        name: 'Nordic Low Carbon Aluminium',
+        city: 'Trondheim',
+        country: 'Norway',
+        region: 'Europe',
+        material: 'Aluminium',
+        product: 'Aluminium billet',
+        production: 600,
+        cbam: 40,
+        transport: 60,
+        leadTime: 12,
+        risk: 18,
+        emissions: 0.8,
+        annualVolume: 85000,
+        x: 50,
+        y: 21
+    },
+    {
+        id: 'ALU-B',
+        name: 'Asia Aluminium Works',
+        city: 'Busan',
+        country: 'South Korea',
+        region: 'Asia',
+        material: 'Aluminium',
+        product: 'Aluminium billet',
+        production: 480,
+        cbam: 140,
+        transport: 100,
+        leadTime: 38,
+        risk: 68,
+        emissions: 2.8,
+        annualVolume: 140000,
+        x: 82,
+        y: 35
+    },
+    {
+        id: 'STL-A',
+        name: 'Anatolia Steel Mills',
+        city: 'Izmir',
+        country: 'Türkiye',
+        region: 'Turkey',
+        material: 'Steel',
+        product: 'Hot rolled coil',
+        production: 610,
+        cbam: 115,
+        transport: 55,
+        leadTime: 10,
+        risk: 35,
+        emissions: 1.9,
+        annualVolume: 220000,
+        x: 55,
+        y: 33
+    },
+    {
+        id: 'STL-B',
+        name: 'Korea Green Steel',
+        city: 'Pohang',
+        country: 'South Korea',
+        region: 'Asia',
+        material: 'Steel',
+        product: 'Flat steel products',
+        production: 640,
+        cbam: 80,
+        transport: 95,
+        leadTime: 32,
+        risk: 28,
+        emissions: 1.2,
+        annualVolume: 180000,
+        x: 82,
+        y: 37
+    },
+    {
+        id: 'STL-C',
+        name: 'Brazil Integrated Steel',
+        city: 'Vitória',
+        country: 'Brazil',
+        region: 'South America',
+        material: 'Steel',
+        product: 'Semi-finished steel',
+        production: 570,
+        cbam: 150,
+        transport: 120,
+        leadTime: 40,
+        risk: 55,
+        emissions: 2.7,
+        annualVolume: 160000,
+        x: 37,
+        y: 61
+    }
 ];
+
 
 const state = {
     page: 'overview',
@@ -24,6 +128,7 @@ const el = {
     refreshBtn: document.getElementById('refreshBtn'),
     exportBtn: document.getElementById('exportBtn')
 };
+
 
 function normalize(value, min, max) {
     if (max === min) return 0;
@@ -463,94 +568,93 @@ function exportCsv() {
 // }
 
 
-function renderMapPage() {
+// function renderMapPage() {
 
-    const material = el.materialFilter.value;
+//     const material = el.materialFilter.value;
 
-    let riskRegion = "Asia";
-    let riskScore = 68;
-    let supplier = "Asia Aluminium Works";
+//     let riskRegion = "Asia";
+//     let riskScore = 68;
+//     let supplier = "Asia Aluminium Works";
 
-    if (material === "Steel") {
-        riskRegion = "Turkey";
-        riskScore = 55;
-        supplier = "Anatolia Steel Mills";
-    }
+//     if (material === "Steel") {
+//         riskRegion = "Turkey";
+//         riskScore = 55;
+//         supplier = "Anatolia Steel Mills";
+//     }
 
-    el.content.innerHTML = `
+//     el.content.innerHTML = `
 
-    <section class="card risk-map-card">
+//     <section class="card risk-map-card">
 
-      <div class="card-header-row">
+//       <div class="card-header-row">
 
-        <div>
-          <h2>Global Risk Monitor</h2>
-          <p class="card-text">
-            Geopolitical sourcing exposure based on active suppliers.
-          </p>
-        </div>
+//         <div>
+//           <h2>Global Risk Monitor</h2>
+//           <p class="card-text">
+//             Geopolitical sourcing exposure based on active suppliers.
+//           </p>
+//         </div>
 
-        <div class="best-pill">
-          Highest Risk: ${riskRegion}
-        </div>
+//         <div class="best-pill">
+//           Highest Risk: ${riskRegion}
+//         </div>
 
-      </div>
+//       </div>
 
-      <div class="world-map">
+//       <div class="world-map">
 
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
-          class="map-image"
-          alt="World Map"
-        />
+//         <img
+//           src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+//           class="map-image"
+//           alt="World Map"
+//         />
 
-      </div>
+//       </div>
 
-      <div class="risk-summary-row">
+//       <div class="risk-summary-row">
 
-        <div class="summary-box">
+//         <div class="summary-box">
 
-          <div class="summary-value">
-            ${riskScore}
-          </div>
+//           <div class="summary-value">
+//             ${riskScore}
+//           </div>
 
-          <div class="summary-label">
-            Highest Risk Score
-          </div>
+//           <div class="summary-label">
+//             Highest Risk Score
+//           </div>
 
-        </div>
+//         </div>
 
-        <div class="summary-box">
+//         <div class="summary-box">
 
-          <div class="summary-value">
-            ${riskRegion}
-          </div>
+//           <div class="summary-value">
+//             ${riskRegion}
+//           </div>
 
-          <div class="summary-label">
-            Risk Region
-          </div>
+//           <div class="summary-label">
+//             Risk Region
+//           </div>
 
-        </div>
+//         </div>
 
-        <div class="summary-box">
+//         <div class="summary-box">
 
-          <div class="summary-value" style="font-size:18px">
-            ${supplier}
-          </div>
+//           <div class="summary-value" style="font-size:18px">
+//             ${supplier}
+//           </div>
 
-          <div class="summary-label">
-            Affected Supplier
-          </div>
+//           <div class="summary-label">
+//             Affected Supplier
+//           </div>
 
-        </div>
+//         </div>
 
-      </div>
+//       </div>
 
-    </section>
+//     </section>
 
-  `;
-}
-
+//   `;
+// }
 
 
 // function riskMapTile() {
@@ -673,6 +777,291 @@ function renderMapPage() {
 //     </section>
 //   `;
 // }
+
+
+const rotterdam = {
+    name: 'Rotterdam',
+    x: 50,
+    y: 29
+};
+
+function getRiskColor(value) {
+    if (value >= 60) return '#dc2626';
+    if (value >= 30) return '#f59e0b';
+    return '#16a34a';
+}
+
+function getCO2Color(value) {
+    if (value >= 2.5) return '#dc2626';
+    if (value >= 1.5) return '#f59e0b';
+    return '#16a34a';
+}
+
+function getLineWidth(volume) {
+    if (volume >= 200000) return 0.75;
+    if (volume >= 150000) return 0.58;
+    if (volume >= 100000) return 0.45;
+    return 0.35;
+}
+
+function createRouteCurve(supplier) {
+    const x1 = supplier.x;
+    const y1 = supplier.y;
+    const x2 = rotterdam.x;
+    const y2 = rotterdam.y;
+
+    const middleX = (x1 + x2) / 2;
+
+    let middleY = Math.min(y1, y2) - Math.abs(x1 - x2) * 0.22;
+
+    if (supplier.region === 'South America') {
+        middleY = 44;
+    }
+
+    if (supplier.region === 'Middle East') {
+        middleY = 34;
+    }
+
+    if (supplier.region === 'Turkey') {
+        middleY = 31;
+    }
+
+    if (supplier.region === 'Europe') {
+        middleY = 20;
+    }
+
+    return `M ${x1} ${y1} Q ${middleX} ${middleY} ${x2} ${y2}`;
+}
+
+function formatVolume(value) {
+    return `${Math.round(value / 1000)}k t`;
+}
+
+function renderMapPage() {
+    const filtered = getFiltered();
+
+    const highestRiskSupplier = filtered.length
+        ? [...filtered].sort((a, b) => b.risk - a.risk)[0]
+        : null;
+
+    const totalVolume = filtered.reduce((sum, s) => sum + s.annualVolume, 0);
+
+    const materialLabel = el.materialFilter.value === 'All'
+        ? 'Alu / Steel'
+        : el.materialFilter.value;
+
+    el.content.innerHTML = `
+
+    <section class="card risk-map-card">
+
+      <div class="card-header-row">
+
+        <div>
+          <h2>CBAM Supplier Network</h2>
+          <p class="card-text">
+            Transport flows to Europe hub Rotterdam.
+          </p>
+        </div>
+
+        <div class="best-pill">
+          Highest Risk: ${highestRiskSupplier ? highestRiskSupplier.region : '-'}
+        </div>
+
+      </div>
+
+      <div class="map-kpi-row">
+
+        <div class="map-kpi-card">
+          <div class="map-kpi-label">Suppliers</div>
+          <div class="map-kpi-value">${filtered.length}</div>
+        </div>
+
+        <div class="map-kpi-card">
+          <div class="map-kpi-label">Destination</div>
+          <div class="map-kpi-value">Rotterdam</div>
+        </div>
+
+        <div class="map-kpi-card">
+          <div class="map-kpi-label">Materials</div>
+          <div class="map-kpi-value">${materialLabel}</div>
+        </div>
+
+        <div class="map-kpi-card">
+          <div class="map-kpi-label">Total Volume</div>
+          <div class="map-kpi-value">${Math.round(totalVolume / 1000)}k t</div>
+        </div>
+
+      </div>
+
+      <div class="world-map">
+
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+          class="map-image"
+          alt="World Map"
+        />
+
+        <div class="map-explainer">
+          Points = supplier locations | Lines = transport flows to Rotterdam |
+          Point color = CO₂ intensity | Line color = geopolitical risk |
+          Line width = annual volume
+        </div>
+
+        <svg class="route-layer" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+          ${filtered.map(s => `
+            <path
+              d="${createRouteCurve(s)}"
+              fill="none"
+              stroke="${getRiskColor(s.risk)}"
+              stroke-width="${getLineWidth(s.annualVolume)}"
+              stroke-linecap="round"
+              opacity="0.86"
+            />
+          `).join('')}
+
+        </svg>
+
+        <div
+          class="map-rotterdam"
+          style="left:${rotterdam.x}%; top:${rotterdam.y}%"
+        >
+          <div class="rotterdam-star">★</div>
+          <div class="rotterdam-box">
+            EU Hub<br />
+            Rotterdam
+          </div>
+        </div>
+
+        ${filtered.map(s => `
+          <div
+            class="map-supplier"
+            style="left:${s.x}%; top:${s.y}%"
+            title="${s.name}"
+          >
+            <div
+              class="map-dot ${s.material === 'Steel' ? 'steel' : 'aluminium'}"
+              style="background:${getCO2Color(s.emissions)}"
+            ></div>
+
+            <div class="map-label">
+              ${s.id}<br />
+              ${s.city}
+            </div>
+          </div>
+        `).join('')}
+
+        <div class="map-legend">
+
+          <div class="legend-box">
+            <div class="legend-title">Locations</div>
+
+            <div class="legend-row">
+              <span class="legend-symbol circle"></span>
+              Aluminium supplier
+            </div>
+
+            <div class="legend-row">
+              <span class="legend-symbol square"></span>
+              Steel supplier
+            </div>
+
+            <div class="legend-row">
+              <span class="legend-symbol star">★</span>
+              Rotterdam EU Hub
+            </div>
+          </div>
+
+          <div class="legend-box">
+            <div class="legend-title">CO₂ / Risk</div>
+
+            <div class="legend-row">
+              <span class="legend-color low"></span>
+              Low
+            </div>
+
+            <div class="legend-row">
+              <span class="legend-color medium"></span>
+              Medium
+            </div>
+
+            <div class="legend-row">
+              <span class="legend-color high"></span>
+              High
+            </div>
+          </div>
+
+        </div>
+
+        <div class="map-table-box">
+
+          <table class="map-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Location</th>
+                <th>Material</th>
+                <th>Vol.</th>
+                <th>CO₂</th>
+                <th>Risk</th>
+              </tr>
+            </thead>
+
+    
+<tbody>
+  ${filtered.map(s => `
+    <tr>
+      <td>${s.id}</td>
+      <td>${s.city}</td>
+      <td>${s.material}</td>
+      <td>${formatVolume(s.annualVolume)}</td>
+      <td>${s.emissions}</td>
+      <td>${s.risk}</td>
+    </tr>
+  `).join('')}
+</tbody>
+
+          </table >
+
+        </div >
+
+      </div >
+
+    <div class="risk-summary-row">
+
+        <div class="summary-box">
+            <div class="summary-value">
+                ${highestRiskSupplier ? highestRiskSupplier.risk : '-'}
+            </div>
+            <div class="summary-label">
+                Highest Risk Score
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <div class="summary-value">
+                ${highestRiskSupplier ? highestRiskSupplier.region : '-'}
+            </div>
+            <div class="summary-label">
+                Risk Region
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <div class="summary-value" style="font-size:18px">
+                ${highestRiskSupplier ? highestRiskSupplier.name : '-'}
+            </div>
+            <div class="summary-label">
+                Affected Supplier
+            </div>
+        </div>
+
+    </div>
+
+    </section >
+
+    `;
+}
 
 
 document.querySelectorAll('.nav-item').forEach(btn => {
